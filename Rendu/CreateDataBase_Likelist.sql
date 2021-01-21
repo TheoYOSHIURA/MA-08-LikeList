@@ -83,7 +83,7 @@ CREATE TABLE Groups_has_Users(
 	Users_id int  NOT NULL
 	)
 
-CREATE TABLE Right_has_Users(
+CREATE TABLE Rights_has_Users(
 	id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Rights_id int  NOT NULL,
 	Users_id int  NOT NULL
@@ -146,21 +146,21 @@ CREATE TABLE Genres(
 CREATE TABLE Medias_has_Works(
 	id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Works_id int  NOT NULL,
-	Medias int  NOT NULL)
+	Medias_id int  NOT NULL)
 
 CREATE TABLE Genres_has_Works(
 	id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	Works_id int  NOT NULL,
 	Genres_id int  NOT NULL)
 
--- Contraintes référentielles
+-- Contraintes rÃ©fÃ©rentielles
 
 ALTER TABLE Users WITH CHECK ADD  CONSTRAINT FK_Users_People FOREIGN KEY(People_id)
 REFERENCES People(id)
 
-ALTER TABLE Right_has_Users WITH CHECK ADD  CONSTRAINT FK_Right_has_Users_Rights FOREIGN KEY(Rights_id)
+ALTER TABLE Rights_has_Users WITH CHECK ADD  CONSTRAINT FK_Right_has_Users_Rights FOREIGN KEY(Rights_id)
 REFERENCES Rights(id)
-ALTER TABLE Right_has_Users WITH CHECK ADD  CONSTRAINT FK_Right_has_Users_Users FOREIGN KEY(Users_id)
+ALTER TABLE Rights_has_Users WITH CHECK ADD  CONSTRAINT FK_Right_has_Users_Users FOREIGN KEY(Users_id)
 REFERENCES Users(id)
 
 ALTER TABLE Groups_has_Users WITH CHECK ADD  CONSTRAINT FK_Groups_has_Users_Groups FOREIGN KEY(Groups_id)
@@ -195,6 +195,11 @@ ALTER TABLE Works_has_Posts WITH CHECK ADD  CONSTRAINT FK_Works_has_Posts_Works 
 REFERENCES Works(id)
 ALTER TABLE Works_has_Posts WITH CHECK ADD  CONSTRAINT FK_Works_has_Posts_Posts FOREIGN KEY(Posts_id)
 REFERENCES Posts(id)
+
+ALTER TABLE Medias_has_Works WITH CHECK ADD  CONSTRAINT FK_Medias_has_Posts_Works FOREIGN KEY(Works_id)
+REFERENCES Works(id)
+ALTER TABLE Medias_has_Works WITH CHECK ADD  CONSTRAINT FK_Medias_has_Posts_Medias FOREIGN KEY(Medias_id)
+REFERENCES Medias(id)
 
 GO
 -------------------------------------------End Tables-----------------------------------------------------------------------
