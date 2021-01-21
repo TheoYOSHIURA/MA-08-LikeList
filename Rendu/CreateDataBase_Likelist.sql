@@ -118,6 +118,7 @@ CREATE TABLE Posts(
 	id int IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	title VARCHAR(45) NOT NULL,
 	description VARCHAR(45),
+	creation_date DATE NOT NULL, 
 	Users_id int  NOT NULL)
 
 CREATE TABLE Works_has_Posts(
