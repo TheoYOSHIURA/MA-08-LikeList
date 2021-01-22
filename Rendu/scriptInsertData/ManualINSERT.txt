@@ -1,0 +1,32 @@
+insert into Rights(name) values
+('Admin'),
+('Moderateur'),
+('Plebe'),
+('Martyr'),
+('Bourgeois'),
+('Roi'),
+('Rebut'),
+('Exile');
+
+insert into Medias(name) values
+('Anime'),
+('Cartoon'),
+('Film'),
+('Manga'),
+('Roman'),
+('Reccueil'),
+('BD'),
+('Emission'),
+('Article');
+
+insert into Genres(name) values
+('Documentaire'),
+('Erotique'),
+('Action'),
+('Comédie'),
+('Romance'),
+('Drama'),
+('Science Fiction'),
+('Horreur'),
+('Suspense');
+
