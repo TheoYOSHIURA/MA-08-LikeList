@@ -203,3 +203,60 @@ REFERENCES Medias(id)
 
 GO
 -------------------------------------------End Tables-----------------------------------------------------------------------
+--Commentaires Dataedo :
+EXECUTE sp_addextendedproperty
+		@level0type = N'Schema', @level0name = 'dbo',
+		@level1type = N'Table', @level1name = 'Users',
+		@name = 'MS_Description', @value='Comptes utilisateurs';
+
+EXECUTE sp_addextendedproperty 
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Users',   
+	@level2type = N'Column',@level2name = 'image',
+	@name = 'MS_Description', @value='Url des images des utilisateurs';
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Users',   
+	@level2type = N'Column',@level2name = 'rank',
+	@name = 'MS_Description', @value='Donne un niveau d importance à un utilisateur (plus il est élevé => signifie que l utilisateur a des droits spéciaux';
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Users',   
+	@level2type = N'Column',@level2name = 'account_state',
+	@name = 'MS_Description', @value='Donne le niveau du compte (plus il est haut => signifie que l utilisateur aime le site';
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'People',   
+	@level2type = N'Column',@level2name = 'gender',
+	@name = 'MS_Description', @value='Homme ou femme ?';
+
+
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Posts',
+	@name = 'MS_Description', @value='message posté sur le site, un poste est visible par tout le monde sur le site, il contient des messages';
+	
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Rights', 
+	@name = 'MS_Description', @value='Droits uniques donné par les administrateurs à un utilisateur';
+
+	
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Works',
+	@name = 'MS_Description', @value='Oeuvres en question';
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Medias',
+	@name = 'MS_Description', @value='types du médias utilisé';
+
+EXECUTE sp_addextendedproperty
+	@level0type = N'Schema', @level0name = 'dbo',  
+	@level1type = N'Table', @level1name = 'Genres',
+	@name = 'MS_Description', @value='types de contenu ';
