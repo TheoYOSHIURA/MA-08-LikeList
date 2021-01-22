@@ -1,3 +1,5 @@
+import os
+
 from PeopleINSERT import GeneratePeopleInsert
 from WorksINSERT import GenerateWorksInsert
 from UsersINSERT import GenerateUsersInsert
@@ -10,6 +12,8 @@ from Groups_has_UsersINSERT import GenerateGroups_has_UsersInsert
 from Rights_has_UsersINSERT import GenerateRights_has_UsersInsert
 from Medias_has_WorksINSERT import GenerateMedias_has_WorksInsert
 from People_has_UsersINSERT import GeneratePeople_has_UsersInsert
+from Users_has_PostsINSERT import GenerateUsers_has_PostsInsert
+from Works_has_PostsINSERT import GenerateWorks_has_PostsInsert
 
 numberOfEntries = 10
 
@@ -32,27 +36,11 @@ content += GenerateGroups_has_UsersInsert(numberOfEntries)
 content += GenerateRights_has_UsersInsert(numberOfEntries)
 content += GenerateMedias_has_WorksInsert(numberOfEntries)
 content += GeneratePeople_has_UsersInsert(numberOfEntries)
+content += GenerateUsers_has_PostsInsert(numberOfEntries)
+content += GenerateWorks_has_PostsInsert(numberOfEntries)
 
-print(content)
-input()
+content = content + "GO"
 
-#VVV TO CHANGE VVV#
-os.system('Tables_Intermediaires/Rights_has_UsersINSERT.py')
-content = content + f.read()
-content = content[:-1]
-content = content + ";\n"
-
-os.system('Tables_Intermediaires/Users_has_PostsINSERT.py')
-content = content + f.read()
-content = content[:-1]
-content = content + ";\n"
-
-os.system('Tables_Intermediaires/Works_has_PostsINSERT.py')
-content = content + f.read()
-content = content[:-1]
-content = content + ";\n"
-
-content = content + "\nGO"
 if os.path.isfile('./FillDataBase_Likelist.sql'):
     os.remove("FillDataBase_Likelist.sql")
 f = open("FillDataBase_Likelist.sql", "w")
