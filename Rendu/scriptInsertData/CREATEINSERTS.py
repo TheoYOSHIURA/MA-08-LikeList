@@ -15,7 +15,7 @@ from People_has_UsersINSERT import GeneratePeople_has_UsersInsert
 from Users_has_PostsINSERT import GenerateUsers_has_PostsInsert
 from Works_has_PostsINSERT import GenerateWorks_has_PostsInsert
 
-numberOfEntries = 10
+numberOfEntries = 10000
 
 content = "USE Likelist\nGO\n\n"
 
